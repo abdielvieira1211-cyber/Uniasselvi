@@ -1,0 +1,171 @@
+index.html<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diploma Digital</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+}
+
+header {
+    background: #ffffff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h2 {
+    margin: 0;
+}
+
+.menu {
+    font-size: 22px;
+}
+
+.container {
+    padding: 15px;
+}
+
+.box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #ffcc00;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.status {
+    padding: 12px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.status.ok {
+    background: #dff0d8;
+    color: #3c763d;
+}
+
+.status.erro {
+    background: #f2dede;
+    color: #a94442;
+}
+
+.file {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.file img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.file a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+footer {
+    background: #fff;
+    margin-top: 30px;
+    padding: 15px;
+}
+
+.footer-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>diplomadigital</h2>
+    <div class="menu">☰</div>
+</header>
+
+<div class="container">
+    <h3>Diploma Digital</h3>
+
+    <div class="box">
+        <label><strong>Código de Validação:</strong></label>
+        <input type="text" id="codigo" placeholder="Digite o código">
+        <button onclick="validar()">Pesquisar</button>
+    </div>
+
+    <div id="statusOk" class="status ok">
+        Diploma ativo
+        <div class="file">
+            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png">
+            <a href="#" download>Diploma.pdf</a>
+        </div>
+        <div class="file">
+            <img src="https://cdn-icons-png.flaticon.com/512/136/136526.png">
+            <a href="#" download>Diploma.xml</a>
+        </div>
+    </div>
+
+    <div id="statusErro" class="status erro">
+        Código inválido ou não encontrado
+    </div>
+</div>
+
+<footer>
+    <div class="footer-item">Institucional</div>
+    <div class="footer-item">Cursos</div>
+    <div class="footer-item">Serviços Acadêmicos</div>
+</footer>
+
+<script>
+function validar() {
+    const codigo = document.getElementById("codigo").value;
+
+    // CÓDIGOS VÁLIDOS (você pode mudar)
+    const codigosValidos = [
+        "1472.1472.b33496",
+        "DIPLOMA2025",
+        "ABC123"
+    ];
+
+    document.getElementById("statusOk").style.display = "none";
+    document.getElementById("statusErro").style.display = "none";
+
+    if (codigosValidos.includes(codigo)) {
+        document.getElementById("statusOk").style.display = "block";
+    } else {
+        document.getElementById("statusErro").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
